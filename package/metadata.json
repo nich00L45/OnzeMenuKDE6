@@ -1,30 +1,43 @@
 {
+    "KPackageStructure": "Plasma/Applet",
     "KPlugin": {
         "Authors": [
             {
                 "Email": "adhemarks@gmail.com",
-                "Name": "Adhe"
+                "Name": "adhe"
+            },
+            {
+                "Email": "",
+                "Name": "nich00L45"
             }
         ],
         "Category": "Application Launchers",
         "Description": "A configurable launcher menu 11",
-        "Description[x-test]": "xxA configurable launcher menu 11xx",
+        "Description[de]": "Ein konfigurierbares Launcher-Menü 11",
+        "Description[fr]": "Un lanceur configurable style Win11",
+        "Description[ko]": "설정 가능한 Win11 스타일 프로그램 실행기",
+        "Description[nl]": "Instelbare programmastarter 11",
+        "Description[pt-br]": "Um menu de lançador configurável 11",
+        "Description[ru]": "Настраиваемое меню запуска OnzeMenu 11",
+        "Description[tr]": "Yapılandırılabilir başlatıcı menüsü 11",
+        "Description[uk]": "Налаштовуваний засіб запуску програм 11",
+        "Description[zh_CN]": "一个可自定义的类Win11开始菜单",
         "EnabledByDefault": true,
         "Icon": "start-here-kde",
         "Id": "OnzeMenu",
-        "License": "GPL-2.0+",
-        "Name": "OnzeMenu",
-        "Name[x-test]": "xxOnze Menuxx",
-        "ServiceTypes": [
-            "Plasma/Applet"
-        ],
+        "License": "GPL v2+",
+        "Name": "OnzeMenu 11",
+        "Name[de]": "OnzeMenu 11",
+        "Name[fr]": "OnzeMenu 11",
+        "Name[ko]": "Onze 메뉴 11",
+        "Name[nl]": "OnzeMenu 11",
+        "Name[pt-br]": "OnzeMenu 11",
+        "Name[tr]": "OnzeMenu 11",
+        "Name[uk]": "OnzeMenu 11",
         "Version": "1.0",
-        "Website": ""
+        "Website": "https://github.com/nich00L45/OnzeMenuKDE6"
     },
-    "KPackageStructure": "Plasma/Applet",
     "X-Plasma-API-Minimum-Version" : "6.0",
-    "X-Plasma-API": "declarativeappletscript",
-    "X-Plasma-MainScript": "ui/main.qml",
     "X-Plasma-Provides": [
         "org.kde.plasma.launchermenu"
     ]
