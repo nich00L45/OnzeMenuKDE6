@@ -20,6 +20,7 @@ import org.kde.plasma.components as PlasmaComponents3
 import org.kde.plasma.private.quicklaunch
 
 import org.kde.kirigami as Kirigami
+import org.kde.plasma.plasma5support as Plasma5Support
 
 
 
@@ -30,7 +31,7 @@ RowLayout{
     KCoreAddons.KUser {   id: kuser  }
     Logic {   id: logic }
 
-    PlasmaCore.DataSource {
+    Plasma5Support.DataSource {
         id: pmEngine
         engine: "powermanagement"
         connectedSources: ["PowerDevil", "Sleep States"]

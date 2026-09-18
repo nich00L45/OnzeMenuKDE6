@@ -26,6 +26,7 @@ import org.kde.kquickcontrolsaddons
 import org.kde.draganddrop
 
 import org.kde.kirigami as Kirigami
+import org.kde.ksvg as KSvg
 
 FocusScope {
     id: itemGrid
@@ -266,7 +267,7 @@ FocusScope {
                         anchors.fill: parent
                     }
 
-                    PlasmaCore.FrameSvgItem {
+                    KSvg.FrameSvgItem {
                         visible: gridView.currentItem && isDropPlaceHolder
 
                         anchors.fill: parent

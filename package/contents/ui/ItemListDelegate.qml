@@ -23,6 +23,7 @@ import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.components as PlasmaComponents
 
 import org.kde.kirigami as Kirigami
+import org.kde.ksvg as KSvg
 
 import "code/tools.js" as Tools
 
@@ -228,7 +229,7 @@ PlasmoidItem {
             text: model.display
         }
 
-        PlasmaCore.SvgItem {
+        KSvg.SvgItem {
             id: arrow
 
             anchors.verticalCenter: parent.verticalCenter
@@ -247,7 +248,7 @@ PlasmoidItem {
     Component {
         id: separatorComponent
 
-        PlasmaCore.SvgItem {
+        KSvg.SvgItem {
             width: parent.width
             height: lineSvg.horLineHeight
 

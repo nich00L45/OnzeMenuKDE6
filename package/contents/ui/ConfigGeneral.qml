@@ -33,6 +33,7 @@ import org.kde.plasma.private.kicker as Kicker
 import "code/tools.js" as Tools
 import org.kde.plasma.extras as PlasmaExtras
 import org.kde.kirigami as Kirigami
+import org.kde.ksvg as KSvg
 
 
 Kirigami.FormLayout {
@@ -127,7 +128,7 @@ Kirigami.FormLayout {
             iconMenu.open(0, height)
         }
 
-        PlasmaCore.FrameSvgItem {
+        KSvg.FrameSvgItem {
             id: previewFrame
             anchors.centerIn: parent
             imagePath: plasmoid.location === PlasmaCore.Types.Vertical || plasmoid.location === PlasmaCore.Types.Horizontal

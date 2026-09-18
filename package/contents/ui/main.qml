@@ -24,6 +24,8 @@ import org.kde.plasma.plasmoid
 import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.components as PlasmaComponents
 
+import org.kde.ksvg as KSvg
+
 import org.kde.plasma.private.kicker as Kicker
 
 PlasmoidItem {
@@ -118,14 +120,14 @@ PlasmoidItem {
         }
     }
 
-    PlasmaCore.FrameSvgItem {
+    KSvg.FrameSvgItem {
         id : highlightItemSvg
         visible: false
         imagePath: "widgets/viewitem"
         prefix: "hover"
     }
 
-    PlasmaCore.FrameSvgItem {
+    KSvg.FrameSvgItem {
         id : panelSvg
 
         visible: false
@@ -133,7 +135,7 @@ PlasmoidItem {
         imagePath: "widgets/panel-background"
     }
 
-    PlasmaCore.FrameSvgItem {
+    KSvg.FrameSvgItem {
         id : backgroundSvg
 
         visible: false
