@@ -22,22 +22,24 @@ import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 
-import org.kde.plasma.plasmoid 2.0
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.plasmoid
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.components as PlasmaComponents
 
-import org.kde.plasma.extras 2.0 as PlasmaExtras
+import org.kde.plasma.extras as PlasmaExtras
 
-import org.kde.plasma.private.kicker 0.1 as Kicker
-import org.kde.kcoreaddons 1.0 as KCoreAddons // kuser
-import org.kde.plasma.private.shell 2.0
+import org.kde.plasma.private.kicker as Kicker
+import org.kde.kcoreaddons as KCoreAddons // kuser
+import org.kde.plasma.private.shell
 import QtQuick.Controls.Styles 1.4
 
-import org.kde.kwindowsystem 1.0
+import org.kde.kwindowsystem
 import QtGraphicalEffects 1.0
-import org.kde.kquickcontrolsaddons 2.0
+import org.kde.kquickcontrolsaddons
 
-import org.kde.plasma.components 3.0 as PlasmaComponents3
+import org.kde.plasma.components as PlasmaComponents3
+
+import org.kde.kirigami as Kirigami
 
 PlasmaCore.Dialog {
     id: root
@@ -49,10 +51,10 @@ PlasmaCore.Dialog {
 
     property int defaultSize: {
         switch(plasmoid.configuration.defaultSize){
-        case "SmallMedium": return PlasmaCore.Units.iconSizes.smallMedium;
-        case "Medium":      return PlasmaCore.Units.iconSizes.medium;
-        case "Large":       return PlasmaCore.Units.iconSizes.large;
-        case "Huge":        return PlasmaCore.Units.iconSizes.huge;
+        case "SmallMedium": return Kirigami.Units.iconSizes.smallMedium;
+        case "Medium":      return Kirigami.Units.iconSizes.medium;
+        case "Large":       return Kirigami.Units.iconSizes.large;
+        case "Huge":        return Kirigami.Units.iconSizes.huge;
         default: return 64
         }
     }
@@ -63,15 +65,15 @@ PlasmaCore.Dialog {
                                  + (2 * Math.max(highlightItemSvg.margins.top + highlightItemSvg.margins.bottom,
                                                  highlightItemSvg.margins.left + highlightItemSvg.margins.right))
 
-    property int tileSideWidth: tileSideHeight + PlasmaCore.Units.smallSpacing*2
+    property int tileSideWidth: tileSideHeight + Kirigami.Units.smallSpacing*2
 
-    property int tileHeightDocuments: PlasmaCore.Units.gridUnit * 2 + PlasmaCore.Units.smallSpacing * 4
+    property int tileHeightDocuments: Kirigami.Units.gridUnit * 2 + Kirigami.Units.smallSpacing * 4
 
     property bool searching: (searchField.text != "")
     property bool readySearch: false
     property bool viewDocuments: false
 
-    property int _margin: iconSizeSquare > 33 ? PlasmaCore.Units.largeSpacing  : PlasmaCore.Units.largeSpacing * 0.5
+    property int _margin: iconSizeSquare > 33 ? Kirigami.Units.gridUnit  : Kirigami.Units.gridUnit * 0.5
 
     property bool mainViewVisible: !searching && !readySearch
 
@@ -143,7 +145,7 @@ PlasmaCore.Dialog {
                              screenAvail.height);
 
 
-        var offset = PlasmaCore.Units.smallSpacing;
+        var offset = Kirigami.Units.smallSpacing;
 
         // Fall back to bottom-left of screen area when the applet is on the desktop or floating.
         var x = offset;
@@ -200,11 +202,11 @@ PlasmaCore.Dialog {
 
         property bool done: false
 
-        ScaleAnimator{id: animation1 ; target: focusScope ; from: 0.8; to: 1; duration: PlasmaCore.Units.shortDuration*3; easing.type: Easing.OutBack}
+        ScaleAnimator{id: animation1 ; target: focusScope ; from: 0.8; to: 1; duration: Kirigami.Units.shortDuration*3; easing.type: Easing.OutBack}
 
         focus: true
 
-        PlasmaExtras.Heading {
+        Kirigami.Icon {
             id: dummyHeading
             visible: false
             width: 0
@@ -230,11 +232,11 @@ PlasmaCore.Dialog {
             anchors.horizontalCenter: parent.horizontalCenter
             focus: true
             width: tileSideWidth * plasmoid.configuration.numberColumns
-            implicitHeight: PlasmaCore.Units.gridUnit * 2
+            implicitHeight: Kirigami.Units.gridUnit * 2
             placeholderText: i18n("Type here to search ...")
             placeholderTextColor: colorWithAlpha(theme.textColor,0.7)
-            leftPadding: PlasmaCore.Units.largeSpacing + PlasmaCore.Units.iconSizes.small
-            topPadding: PlasmaCore.Units.gridUnit * 0.5
+            leftPadding: Kirigami.Units.gridUnit + Kirigami.Units.iconSizes.small
+            topPadding: Kirigami.Units.gridUnit * 0.5
             verticalAlignment: Text.AlignTop
             background: Rectangle {
                 color: theme.backgroundColor
@@ -279,15 +281,15 @@ PlasmaCore.Dialog {
             color: theme.highlightColor
         }
 
-        PlasmaCore.IconItem {
+        Kirigami.Icon {
             source: 'search'
             anchors {
                 left: searchField.left
                 verticalCenter: searchField.verticalCenter
-                leftMargin: PlasmaCore.Units.smallSpacing * 2
+                leftMargin: Kirigami.Units.smallSpacing * 2
 
             }
-            height: PlasmaCore.Units.iconSizes.small
+            height: Kirigami.Units.iconSizes.small
             width: height
         }
 
@@ -304,18 +306,18 @@ PlasmaCore.Dialog {
             anchors.horizontalCenter: parent.horizontalCenter
             height: btnAction.implicitHeight
 
-            PlasmaCore.IconItem {
+            Kirigami.Icon {
                 source: searching || readySearch ? 'application-menu' : 'favorite'
-                implicitHeight: PlasmaCore.Units.iconSizes.smallMedium
-                implicitWidth: PlasmaCore.Units.iconSizes.smallMedium
+                implicitHeight: Kirigami.Units.iconSizes.smallMedium
+                implicitWidth: Kirigami.Units.iconSizes.smallMedium
             }
 
-            PlasmaExtras.Heading {
+            Kirigami.Icon {
                 id: headLabelFavorites
                 color: colorWithAlpha(theme.textColor, 0.8)
                 level: 5
                 text: searching || readySearch ? i18n("Search results"): i18n("Pinned")
-                Layout.leftMargin: PlasmaCore.Units.smallSpacing
+                Layout.leftMargin: Kirigami.Units.smallSpacing
                 font.weight: Font.Bold
 
             }
@@ -356,7 +358,7 @@ PlasmaCore.Dialog {
                 }
             ]
             transitions: Transition {
-                OpacityAnimator{ duration: PlasmaCore.Units.shortDuration*2 }
+                OpacityAnimator{ duration: Kirigami.Units.shortDuration*2 }
             }
         }
 
@@ -404,7 +406,7 @@ PlasmaCore.Dialog {
                     to: "visible"
                     NumberAnimation {
                         properties: "opacity,x"
-                        duration: PlasmaCore.Units.shortDuration*2
+                        duration: Kirigami.Units.shortDuration*2
                     }
                 },
                 Transition {
@@ -419,7 +421,7 @@ PlasmaCore.Dialog {
                         PropertyAnimation {
                             target: firstPage
                             properties: "opacity,x"
-                            duration: PlasmaCore.Units.shortDuration*2
+                            duration: Kirigami.Units.shortDuration*2
                         }
                     }
 
@@ -461,7 +463,7 @@ PlasmaCore.Dialog {
                     }
                 ]
                 transitions: Transition {
-                    PropertyAnimation { property: "height"; duration: PlasmaCore.Units.shortDuration*2;}
+                    PropertyAnimation { property: "height"; duration: Kirigami.Units.shortDuration*2;}
                 }
                 Keys.onPressed: {
                     if(event.modifiers & Qt.ControlModifier ||event.modifiers & Qt.ShiftModifier){
@@ -497,18 +499,18 @@ PlasmaCore.Dialog {
                 width: parent.width
                 height: btnAction.implicitHeight
 
-                PlasmaCore.IconItem {
+                Kirigami.Icon {
                     source: plasmoid.configuration.hideRecentDocs ? 'clock' : 'tag'
-                    implicitHeight: PlasmaCore.Units.iconSizes.smallMedium
-                    implicitWidth: PlasmaCore.Units.iconSizes.smallMedium
+                    implicitHeight: Kirigami.Units.iconSizes.smallMedium
+                    implicitWidth: Kirigami.Units.iconSizes.smallMedium
                 }
 
-                PlasmaExtras.Heading {
+                Kirigami.Icon {
                     id: headLabelDocuments
                     color: colorWithAlpha(theme.textColor, 0.8)
                     level: 5
                     text: plasmoid.configuration.hideRecentDocs ?  i18n("Date and time") :  i18n("Recommended")
-                    Layout.leftMargin: PlasmaCore.Units.smallSpacing
+                    Layout.leftMargin: Kirigami.Units.smallSpacing
                     font.weight: Font.Bold
                 }
                 Item{
@@ -559,7 +561,7 @@ PlasmaCore.Dialog {
                     }
                 ]
                 transitions: Transition {
-                    PropertyAnimation { property: "height"; duration: PlasmaCore.Units.shortDuration*2 }
+                    PropertyAnimation { property: "height"; duration: Kirigami.Units.shortDuration*2 }
                 }
 
                 Keys.onPressed: {
@@ -636,7 +638,7 @@ PlasmaCore.Dialog {
                     to: "visible"
                     NumberAnimation {
                         properties: "opacity,x"
-                        duration: PlasmaCore.Units.shortDuration*2
+                        duration: Kirigami.Units.shortDuration*2
 
                     }
                 },
@@ -665,7 +667,7 @@ PlasmaCore.Dialog {
                 height: parent.height
                 anchors {
                     top: parent.top
-                    topMargin: PlasmaCore.Units.smallSpacing
+                    topMargin: Kirigami.Units.smallSpacing
                 }
                 property Item visibleGrid: allAppsGrid
 
@@ -683,8 +685,8 @@ PlasmaCore.Dialog {
                     height: parent.height
                     enabled: (opacity == 1.0) ? 1 : 0
                     opacity: searching ? 0 : 1
-                    aCellWidth: parent.width - PlasmaCore.Units.largeSpacing
-                    aCellHeight: iconSize + PlasmaCore.Units.smallSpacing*2
+                    aCellWidth: parent.width - Kirigami.Units.gridUnit
+                    aCellHeight: iconSize + Kirigami.Units.smallSpacing*2
                     onOpacityChanged: {
                         if (opacity == 1.0) {
                             allAppsGrid.flickableItem.contentY = 0;
@@ -699,8 +701,8 @@ PlasmaCore.Dialog {
                     id: runnerGrid
                     anchors.fill: parent
                     z: (opacity == 1.0) ? 1 : 0
-                    aCellWidth: parent.width - PlasmaCore.Units.largeSpacing
-                    aCellHeight: iconSize + PlasmaCore.Units.smallSpacing * 2
+                    aCellWidth: parent.width - Kirigami.Units.gridUnit
+                    aCellHeight: iconSize + Kirigami.Units.smallSpacing * 2
 
                     enabled: (opacity == 1.0) ? 1 : 0
                     isSquare: false
@@ -756,7 +758,7 @@ PlasmaCore.Dialog {
         PlasmaExtras.PlasmoidHeading {
             id: footer
             contentWidth: parent.width
-            contentHeight: root.iconSizeSquare + PlasmaCore.Units.smallSpacing
+            contentHeight: root.iconSizeSquare + Kirigami.Units.smallSpacing
             anchors.bottom: parent.bottom
             position: PlasmaComponents3.ToolBar.Footer
             Footer{

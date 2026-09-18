@@ -2,28 +2,30 @@ import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.12
 
-import org.kde.plasma.plasmoid 2.0
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.plasmoid
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.components as PlasmaComponents
 
-import org.kde.plasma.extras 2.0 as PlasmaExtras
+import org.kde.plasma.extras as PlasmaExtras
 
-import org.kde.plasma.private.kicker 0.1 as Kicker
-import org.kde.kcoreaddons 1.0 as KCoreAddons // kuser
-import org.kde.plasma.private.shell 2.0
+import org.kde.plasma.private.kicker as Kicker
+import org.kde.kcoreaddons as KCoreAddons // kuser
+import org.kde.plasma.private.shell
 
-import org.kde.kwindowsystem 1.0
+import org.kde.kwindowsystem
 import QtGraphicalEffects 1.0
-import org.kde.kquickcontrolsaddons 2.0
+import org.kde.kquickcontrolsaddons
 
-import org.kde.plasma.components 3.0 as PlasmaComponents3
-import org.kde.plasma.private.quicklaunch 1.0
+import org.kde.plasma.components as PlasmaComponents3
+import org.kde.plasma.private.quicklaunch
+
+import org.kde.kirigami as Kirigami
 
 
 
 RowLayout{
 
-    spacing: PlasmaCore.Units.largeSpacing
+    spacing: Kirigami.Units.gridUnit
 
     KCoreAddons.KUser {   id: kuser  }
     Logic {   id: logic }
@@ -64,7 +66,7 @@ RowLayout{
     }
 
 
-    PlasmaExtras.Heading {
+     {
         wrapMode: Text.NoWrap
         color: theme.textColor
         level: 3

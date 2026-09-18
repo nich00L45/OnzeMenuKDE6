@@ -22,17 +22,17 @@ import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.5
 
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.components as PlasmaComponents
 
-import org.kde.kquickcontrolsaddons 2.0 as KQuickAddons
-import org.kde.draganddrop 2.0 as DragDrop
-import org.kde.plasma.private.kicker 0.1 as Kicker
+import org.kde.kquickcontrolsaddons as KQuickAddons
+import org.kde.draganddrop as DragDrop
+import org.kde.plasma.private.kicker as Kicker
 
 
 import "code/tools.js" as Tools
-import org.kde.plasma.extras 2.0 as PlasmaExtras
-import org.kde.kirigami 2.10 as Kirigami
+import org.kde.plasma.extras as PlasmaExtras
+import org.kde.kirigami as Kirigami
 
 
 Kirigami.FormLayout {
@@ -65,13 +65,13 @@ Kirigami.FormLayout {
     Button {
         Kirigami.FormData.label: i18n("Icon:")
         id: iconButton
-        //Layout.minimumWidth: previewFrame.width + PlasmaCore.Units.smallSpacing * 2
+        //Layout.minimumWidth: previewFrame.width + Kirigami.Units.smallSpacing * 2
         //Layout.maximumWidth: Layout.minimumWidth
-        //Layout.minimumHeight: previewFrame.height + PlasmaCore.Units.smallSpacing * 2
+        //Layout.minimumHeight: previewFrame.height + Kirigami.Units.smallSpacing * 2
         //Layout.maximumHeight: Layout.minimumWidth
 
-        implicitWidth: previewFrame.width + PlasmaCore.Units.smallSpacing * 2
-        implicitHeight: previewFrame.height + PlasmaCore.Units.smallSpacing * 2
+        implicitWidth: previewFrame.width + Kirigami.Units.smallSpacing * 2
+        implicitHeight: previewFrame.height + Kirigami.Units.smallSpacing * 2
 
         DragDrop.DropArea {
             id: dropArea
@@ -132,12 +132,12 @@ Kirigami.FormLayout {
             anchors.centerIn: parent
             imagePath: plasmoid.location === PlasmaCore.Types.Vertical || plasmoid.location === PlasmaCore.Types.Horizontal
                        ? "widgets/panel-background" : "widgets/background"
-            width: PlasmaCore.Units.iconSizes.large + fixedMargins.left + fixedMargins.right
-            height: PlasmaCore.Units.iconSizes.large + fixedMargins.top + fixedMargins.bottom
+            width: Kirigami.Units.iconSizes.large + fixedMargins.left + fixedMargins.right
+            height: Kirigami.Units.iconSizes.large + fixedMargins.top + fixedMargins.bottom
 
-            PlasmaCore.IconItem {
+            Kirigami.Icon {
                 anchors.centerIn: parent
-                width: PlasmaCore.Units.iconSizes.large
+                width: Kirigami.Units.iconSizes.large
                 height: width
                 source: cfg_useCustomButtonImage ? cfg_customButtonImage : cfg_icon
             }

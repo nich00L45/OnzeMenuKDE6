@@ -19,12 +19,14 @@
 
 import QtQuick 2.0
 
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.components as PlasmaComponents
+
+import org.kde.kirigami as Kirigami
 
 import "code/tools.js" as Tools
 
-Item {
+PlasmoidItem {
     id: item
 
     height: GridView.view.cellHeight
@@ -59,14 +61,14 @@ Item {
     }
 
 
-    PlasmaCore.IconItem {
+    Kirigami.Icon {
         id: icon
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        anchors.verticalCenterOffset: - PlasmaCore.Units.gridUnit
+        anchors.verticalCenterOffset: - Kirigami.Units.gridUnit
         width:  iconSize
         height: width
-        colorGroup: PlasmaCore.Theme.ComplementaryColorGroup
+        colorGroup: Kirigami.Theme.ComplementaryColorGroup
         animated: false
         usesPlasmaTheme: item.GridView.view.usesPlasmaTheme
         source: model.decoration
@@ -79,11 +81,11 @@ Item {
         anchors {
             horizontalCenter: icon.horizontalCenter
             top: icon.bottom
-            topMargin: PlasmaCore.Units.smallSpacing
+            topMargin: Kirigami.Units.smallSpacing
         }
-        width: parent.width - PlasmaCore.Units.largeSpacing
+        width: parent.width - Kirigami.Units.gridUnit
         maximumLineCount: 2
-        height: PlasmaCore.Units.gridUnit * 2
+        height: Kirigami.Units.gridUnit * 2
         elide: Text.ElideRight
         horizontalAlignment: Qt.AlignHCenter
         verticalAlignment: Qt.AlignTop

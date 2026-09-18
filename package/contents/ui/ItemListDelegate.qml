@@ -19,12 +19,14 @@
 
 import QtQuick 2.0
 
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.components as PlasmaComponents
+
+import org.kde.kirigami as Kirigami
 
 import "code/tools.js" as Tools
 
-Item {
+PlasmoidItem {
     id: item
 
     height: isSeparator ? separatorHeight : itemHeight
@@ -187,17 +189,17 @@ Item {
 
         height: parent.height
 
-        spacing: PlasmaCore.Units.smallSpacing * 2
+        spacing: Kirigami.Units.smallSpacing * 2
         readonly property real actualSpacing: ((icon.visible ? 1 : 0) * spacing) + ((arrow.visible ? 1 : 0) * spacing)
 
         LayoutMirroring.enabled: (Qt.application.layoutDirection == Qt.RightToLeft)
 
-        PlasmaCore.IconItem {
+        Kirigami.Icon {
             id: icon
 
             anchors.verticalCenter: parent.verticalCenter
 
-            width: visible ? PlasmaCore.Units.iconSizes.small : 0
+            width: visible ? Kirigami.Units.iconSizes.small : 0
             height: width
 
             visible: iconsEnabled
@@ -231,7 +233,7 @@ Item {
 
             anchors.verticalCenter: parent.verticalCenter
 
-            width: visible ? PlasmaCore.Units.iconSizes.small : 0
+            width: visible ? Kirigami.Units.iconSizes.small : 0
             height: width
 
             visible: hasChildren

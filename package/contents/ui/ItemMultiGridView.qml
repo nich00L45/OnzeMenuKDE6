@@ -19,10 +19,12 @@
 
 import QtQuick 2.4
 
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.extras 2.0 as PlasmaExtras
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.extras as PlasmaExtras
 
-import org.kde.plasma.private.kicker 0.1 as Kicker
+import org.kde.kirigami as Kirigami
+
+import org.kde.plasma.private.kicker as Kicker
 
 PlasmaExtras.ScrollArea {
     id: itemMultiGrid
@@ -88,23 +90,23 @@ PlasmaExtras.ScrollArea {
     Column {
         id: itemColumn
 
-        width: itemMultiGrid.width //- PlasmaCore.Units.gridUnit
+        width: itemMultiGrid.width //- Kirigami.Units.gridUnit
 
         Repeater {
             id: repeater
 
             delegate: Item {
                 width: itemColumn.width
-                height:  gridViewLabel.height + gridView.height + (index == repeater.count - 1 ? 0 : PlasmaCore.Units.smallSpacing)
+                height:  gridViewLabel.height + gridView.height + (index == repeater.count - 1 ? 0 : Kirigami.Units.smallSpacing)
                 //visible:  gridView.count > 0
 
                 property Item itemGrid: gridView
 
-                PlasmaExtras.Heading {
+                Kirigami.Heading {
                     id: gridViewLabel
                     anchors.top: parent.top
                     anchors.left: parent.left
-                    anchors.leftMargin: PlasmaCore.Units.smallSpacing
+                    anchors.leftMargin: Kirigami.Units.smallSpacing
                     height: dummyHeading.height
                     wrapMode: Text.NoWrap
                     color: theme.textColor
@@ -119,7 +121,7 @@ PlasmaExtras.ScrollArea {
                     anchors.right: parent.right
                     anchors.verticalCenter: gridViewLabel.verticalCenter
                     height: 1
-                    width: parent.width - gridViewLabel.implicitWidth - PlasmaCore.Units.largeSpacing*2
+                    width: parent.width - gridViewLabel.implicitWidth - Kirigami.Units.gridUnit*2
                     color: theme.textColor
                     opacity: 0.15
                 }
@@ -135,7 +137,7 @@ PlasmaExtras.ScrollArea {
 
                     anchors {
                         top: gridViewLabel.bottom
-                        topMargin: PlasmaCore.Units.smallSpacing
+                        topMargin: Kirigami.Units.smallSpacing
                     }
 
                     width: parent.width

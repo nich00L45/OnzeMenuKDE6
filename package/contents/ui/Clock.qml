@@ -20,7 +20,7 @@
 import QtQuick 2.8
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.0
-import org.kde.plasma.core 2.0
+import org.kde.plasma.core
 
 ColumnLayout {
     readonly property bool softwareRendering: GraphicsInfo.api === GraphicsInfo.Software

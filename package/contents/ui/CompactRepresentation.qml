@@ -20,11 +20,12 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.1
 
-import org.kde.plasma.plasmoid 2.0
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 3.0 as PC3
+import org.kde.plasma.plasmoid
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.components as PC3
+import org.kde.kirigami as Kirigami
 
-Item {
+PlasmoidItem {
     id: root
 
     readonly property var screenGeometry: plasmoid.screenGeometry
@@ -37,13 +38,13 @@ Item {
         && plasmoid.configuration.customButtonImage.length != 0)
     property QtObject dashWindow: null
 
-    Plasmoid.status: dashWindow && dashWindow.visible ? PlasmaCore.Types.RequiresAttentionStatus : PlasmaCore.Types.PassiveStatus
+    status: dashWindow && dashWindow.visible ? PlasmaCore.Types.RequiresAttentionStatus : PlasmaCore.Types.PassiveStatus
 
     // Taken from DigitalClock to ensure uniform sizing when next to each other
-    readonly property bool tooSmall: plasmoid.formFactor === PlasmaCore.Types.Horizontal && Math.round(2 * (root.height / 5)) <= PlasmaCore.Theme.smallestFont.pixelSize
+    readonly property bool tooSmall: plasmoid.formFactor === PlasmaCore.Types.Horizontal && Math.round(2 * (root.height / 5)) <= Kirigami.Theme.smallestFont.pixelSize
 
-    readonly property bool shouldHaveIcon: Plasmoid.formFactor === PlasmaCore.Types.Vertical || Plasmoid.icon !== ""
-    readonly property bool shouldHaveLabel: Plasmoid.formFactor !== PlasmaCore.Types.Vertical && Plasmoid.configuration.menuLabel !== ""
+    readonly property bool shouldHaveIcon: formFactor === PlasmaCore.Types.Vertical || icon !== ""
+    readonly property bool shouldHaveLabel: formFactor !== PlasmaCore.Types.Vertical && configuration.menuLabel !== ""
 
 
    // onWidthChanged: updateSizeHints()
@@ -55,20 +56,20 @@ Item {
                 var scaledHeight = Math.floor(parent.width * (buttonIcon.implicitHeight / buttonIcon.implicitWidth));
                 root.Layout.minimumHeight = scaledHeight;
                 root.Layout.maximumHeight = scaledHeight;
-                root.Layout.minimumWidth = PlasmaCore.Units.iconSizes.small;
-                root.Layout.maximumWidth = inPanel ? PlasmaCore.Units.iconSizeHints.panel : -1;
+                root.Layout.minimumWidth = Kirigami.Units.iconSizes.small;
+                root.Layout.maximumWidth = inPanel ? Kirigami.Units.iconSizeHints.panel : -1;
             } else {
                 var scaledWidth = Math.floor(parent.height * (buttonIcon.implicitWidth / buttonIcon.implicitHeight));
                 root.Layout.minimumWidth = scaledWidth;
                 root.Layout.maximumWidth = scaledWidth;
-                root.Layout.minimumHeight = PlasmaCore.Units.iconSizes.small;
-                root.Layout.maximumHeight = inPanel ? PlasmaCore.Units.iconSizeHints.panel : -1;
+                root.Layout.minimumHeight = Kirigami.Units.iconSizes.small;
+                root.Layout.maximumHeight = inPanel ? Kirigami.Units.iconSizeHints.panel : -1;
             }
         } else {
-            root.Layout.minimumWidth = PlasmaCore.Units.iconSizes.small;
-            root.Layout.maximumWidth = inPanel ? PlasmaCore.Units.iconSizeHints.panel : -1;
-            root.Layout.minimumHeight = PlasmaCore.Units.iconSizes.small
-            root.Layout.maximumHeight = inPanel ? PlasmaCore.Units.iconSizeHints.panel : -1;
+            root.Layout.minimumWidth = Kirigami.Units.iconSizes.small;
+            root.Layout.maximumWidth = inPanel ? Kirigami.Units.iconSizeHints.panel : -1;
+            root.Layout.minimumHeight = Kirigami.Units.iconSizes.small
+            root.Layout.maximumHeight = inPanel ? Kirigami.Units.iconSizeHints.panel : -1;
         }
     }
 
@@ -82,14 +83,14 @@ Item {
         if (shouldHaveLabel) {
             impWidth += labelTextField.contentWidth + labelTextField.Layout.leftMargin + labelTextField.Layout.rightMargin;
         }
-        const impHeight = Math.max(PlasmaCore.Units.iconSizeHints.panel, displayedIcon.height);
+        const impHeight = Math.max(Kirigami.Units.iconSizeHints.panel, displayedIcon.height);
 
         // at least square, but can be wider/taller
         if (root.inPanel) {
             if (root.vertical) {
                 return {
                     minimumWidth: -1,
-                    maximumWidth: PlasmaCore.Units.iconSizeHints.panel,
+                    maximumWidth: Kirigami.Units.iconSizeHints.panel,
                     minimumHeight: -1,
                     maximumHeight: impHeight,
                 };
@@ -98,21 +99,21 @@ Item {
                     minimumWidth: impWidth,
                     maximumWidth: impWidth,
                     minimumHeight: -1,
-                    maximumHeight: PlasmaCore.Units.iconSizeHints.panel,
+                    maximumHeight: Kirigami.Units.iconSizeHints.panel,
                 };
             }
         } else {
             return {
                 minimumWidth: impWidth,
                 maximumWidth: -1,
-                minimumHeight: PlasmaCore.Units.iconSizes.small,
+                minimumHeight: Kirigami.Units.iconSizes.small,
                 maximumHeight: -1,
             };
         }
     }
 
-    implicitWidth: PlasmaCore.Units.iconSizeHints.panel
-    implicitHeight: PlasmaCore.Units.iconSizeHints.panel
+    implicitWidth: Kirigami.Units.iconSizeHints.panel
+    implicitHeight: Kirigami.Units.iconSizeHints.panel
 
     Layout.minimumWidth: sizing.minimumWidth
     Layout.maximumWidth: sizing.maximumWidth
@@ -121,11 +122,11 @@ Item {
 
 
     //Connections {
-    //    target: PlasmaCore.Units.iconSizeHints
+    //    target: Kirigami.Units.iconSizeHints
     //    function onPanelChanged(){ updateSizeHints()}
     //}
 
-    PlasmaCore.IconItem {
+    Kirigami.Icon {
         id: buttonIcon3
 
         anchors.fill: parent
@@ -152,7 +153,7 @@ Item {
         anchors.fill: parent
         spacing: 0
 
-        PlasmaCore.IconItem {
+        Kirigami.Icon {
             id: buttonIcon
 
             Layout.fillWidth: root.vertical
@@ -167,7 +168,7 @@ Item {
             visible: valid
         }
 
-        PlasmaCore.IconItem {
+        Kirigami.Icon {
             id: buttonIconFallback
             // fallback is assumed to be square
             Layout.fillWidth: root.vertical
@@ -178,15 +179,15 @@ Item {
 
             source: buttonIcon.valid ? null : Tools.defaultIconName
             //active: compactRoot.containsMouse || compactDragArea.containsDrag
-            visible: !buttonIcon.valid && Plasmoid.icon !== ""
+            visible: !buttonIcon.valid && icon !== ""
         }
 
         PC3.Label {
             id: labelTextField
 
             Layout.fillHeight: true
-            Layout.leftMargin: PlasmaCore.Units.smallSpacing
-            Layout.rightMargin: PlasmaCore.Units.smallSpacing
+            Layout.leftMargin: Kirigami.Units.smallSpacing
+            Layout.rightMargin: Kirigami.Units.smallSpacing
 
             text: plasmoid.configuration.menuLabel
             horizontalAlignment: Text.AlignLeft
@@ -194,8 +195,9 @@ Item {
             wrapMode: Text.NoWrap
             //fontSizeMode: Text.VerticalFit
             font.pixelSize: plasmoid.configuration.textLabelFontsize
-            //font.pixelSize: compactRoot.tooSmall ? PlasmaCore.Theme.defaultFont.pixelSize : PlasmaCore.Units.roundToIconSize(PlasmaCore.Units.gridUnit * 2)
-            minimumPointSize: PlasmaCore.Theme.smallestFont.pointSize
+            // @TODO uncomment?
+            //font.pixelSize: compactRoot.tooSmall ? Kirigami.Theme.defaultFont.pixelSize : Kirigami.Units.iconSizes.sizeForLabels(Kirigami.Units.gridUnit * 2)
+            minimumPointSize: Kirigami.Theme.smallestFont.pointSize
             visible: root.shouldHaveLabel
         }
     }

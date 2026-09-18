@@ -19,11 +19,13 @@
 
 import QtQuick 2.4
 
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
-import org.kde.plasma.extras 2.0 as PlasmaExtras
-import org.kde.kquickcontrolsaddons 2.0
-import org.kde.draganddrop 2.0
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.plasma.extras as PlasmaExtras
+import org.kde.kquickcontrolsaddons
+import org.kde.draganddrop
+
+import org.kde.kirigami as Kirigami
 
 FocusScope {
     id: itemGrid
@@ -215,7 +217,7 @@ FocusScope {
 
                 property bool usesPlasmaTheme: false
 
-                property int iconSize: PlasmaCore.Units.iconSizes.huge
+                property int iconSize: Kirigami.Units.iconSizes.huge
 
                 property bool animating: false
                 property int animationDuration: itemGrid.dropEnabled ? resetAnimationDurationTimer.interval : 0
@@ -281,7 +283,7 @@ FocusScope {
 
                         opacity: 0.5
 
-                        PlasmaCore.IconItem {
+                        Kirigami.Icon {
                             anchors {
                                 right: parent.right
                                 rightMargin: parent.margins.right
@@ -289,7 +291,7 @@ FocusScope {
                                 bottomMargin: parent.margins.bottom
                             }
 
-                            width: PlasmaCore.Units.iconSizes.smallMedium
+                            width: Kirigami.Units.iconSizes.smallMedium
                             height: width
 
                             source: "list-add"

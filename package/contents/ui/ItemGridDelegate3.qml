@@ -19,13 +19,15 @@
 
 import QtQuick 2.0
 
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.components as PlasmaComponents
 import QtQuick.Layouts 1.0
+
+import org.kde.kirigami as Kirigami
 
 import "code/tools.js" as Tools
 
-Item {
+PlasmoidItem {
     id: item
 
     width:  GridView.view.cellWidth
@@ -64,14 +66,14 @@ Item {
     }
 
 
-    PlasmaCore.IconItem {
+    Kirigami.Icon {
         id: icon
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        anchors.leftMargin: PlasmaCore.Units.smallSpacing
-        width:  PlasmaCore.Units.iconSizes.medium
+        anchors.leftMargin: Kirigami.Units.smallSpacing
+        width:  Kirigami.Units.iconSizes.medium
         height: width
-        colorGroup: PlasmaCore.Theme.ComplementaryColorGroup
+        colorGroup: Kirigami.Theme.ComplementaryColorGroup
         animated: false
         usesPlasmaTheme: item.GridView.view.usesPlasmaTheme
         source: model.decoration
@@ -82,8 +84,8 @@ Item {
         columns: numColumns
         anchors.left: icon.right
         anchors.right: parent.right
-        anchors.leftMargin: PlasmaCore.Units.largeSpacing
-        anchors.rightMargin: PlasmaCore.Units.largeSpacing
+        anchors.leftMargin: Kirigami.Units.gridUnit
+        anchors.rightMargin: Kirigami.Units.gridUnit
         anchors.verticalCenter: parent.verticalCenter
         columnSpacing: 1
         rowSpacing: 1

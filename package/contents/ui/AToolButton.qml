@@ -1,14 +1,15 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.1
-import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.plasma.core as PlasmaCore
+import org.kde.kirigami as Kirigami
 
 Rectangle{
 
     id:item
 
-    implicitHeight: Math.floor( PlasmaCore.Units.gridUnit * 1.8)
-    width: Math.floor(lb.implicitWidth + PlasmaCore.Units.smallSpacing * 5 + icon.width)
+    implicitHeight: Math.floor( Kirigami.Units.gridUnit * 1.8)
+    width: Math.floor(lb.implicitWidth + Kirigami.Units.smallSpacing * 5 + icon.width)
 
 
     border.width: 1
@@ -28,18 +29,18 @@ Rectangle{
     RowLayout{
         id: row
         anchors.fill: parent
-        anchors.leftMargin: PlasmaCore.Units.smallSpacing * 2
-        anchors.rightMargin: PlasmaCore.Units.smallSpacing * 2
-        spacing: PlasmaCore.Units.smallSpacing
+        anchors.leftMargin: Kirigami.Units.smallSpacing * 2
+        anchors.rightMargin: Kirigami.Units.smallSpacing * 2
+        spacing: Kirigami.Units.smallSpacing
         LayoutMirroring.enabled: mirror
 
         Label{
             id: lb
             color: theme.textColor
         }
-        PlasmaCore.IconItem {
+        Kirigami.Icon {
             id: icon
-            implicitHeight: PlasmaCore.Units.gridUnit
+            implicitHeight: Kirigami.Units.gridUnit
             implicitWidth: implicitHeight
             smooth: plasmoid.configuration.iconSmooth
         }
