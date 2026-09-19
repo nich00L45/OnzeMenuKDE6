@@ -19,8 +19,9 @@
 
 import QtQuick 2.8
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 1.0
+import QtQuick.Controls
 import org.kde.plasma.core
+import org.kde.plasma.plasma5support as Plasma5Support
 
 ColumnLayout {
     readonly property bool softwareRendering: GraphicsInfo.api === GraphicsInfo.Software
@@ -49,7 +50,7 @@ ColumnLayout {
     Item{
         Layout.fillHeight: true
     }
-    DataSource {
+    Plasma5Support.DataSource {
         id: timeSource
         engine: "time"
         connectedSources: ["Local"]

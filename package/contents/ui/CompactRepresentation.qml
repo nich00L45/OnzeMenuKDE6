@@ -38,7 +38,7 @@ PlasmoidItem {
         && plasmoid.configuration.customButtonImage.length != 0)
     property QtObject dashWindow: null
 
-    status: dashWindow && dashWindow.visible ? PlasmaCore.Types.RequiresAttentionStatus : PlasmaCore.Types.PassiveStatus
+    Plasmoid.status: dashWindow && dashWindow.visible ? PlasmaCore.Types.RequiresAttentionStatus : PlasmaCore.Types.PassiveStatus
 
     // Taken from DigitalClock to ensure uniform sizing when next to each other
     readonly property bool tooSmall: plasmoid.formFactor === PlasmaCore.Types.Horizontal && Math.round(2 * (root.height / 5)) <= Kirigami.Theme.smallestFont.pixelSize
@@ -218,4 +218,5 @@ PlasmoidItem {
             dashWindow.visible = !dashWindow.visible;
         });
     }
+    
 }

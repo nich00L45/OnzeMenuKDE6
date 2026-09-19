@@ -29,12 +29,12 @@ import org.kde.plasma.components as PlasmaComponents
 import org.kde.plasma.extras as PlasmaExtras
 
 import org.kde.plasma.private.kicker as Kicker
-import org.kde.kcoreaddons as KCoreAddons // kuser
+import org.kde.coreaddons as KCoreAddons // kuser
 import org.kde.plasma.private.shell
-import QtQuick.Controls.Styles 1.4
+// @TODO replace import QtQuick.Controls.Styles 1.4
 
 import org.kde.kwindowsystem
-import QtGraphicalEffects 1.0
+// @TODO replace import QtGraphicalEffects 1.0
 import org.kde.kquickcontrolsaddons
 
 import org.kde.plasma.components as PlasmaComponents3
@@ -210,7 +210,7 @@ PlasmaCore.Dialog {
             id: dummyHeading
             visible: false
             width: 0
-            level: 1
+            // @TODO level: 1
         }
 
         TextMetrics {
@@ -315,10 +315,10 @@ PlasmaCore.Dialog {
             Kirigami.Icon {
                 id: headLabelFavorites
                 color: colorWithAlpha(theme.textColor, 0.8)
-                level: 5
-                text: searching || readySearch ? i18n("Search results"): i18n("Pinned")
+                // @TODO level: 5
+                // @TODO text: searching || readySearch ? i18n("Search results"): i18n("Pinned")
                 Layout.leftMargin: Kirigami.Units.smallSpacing
-                font.weight: Font.Bold
+                // @TODO font.weight: Font.Bold
 
             }
 
@@ -443,7 +443,7 @@ PlasmaCore.Dialog {
                 model: plasmoid.configuration.showRecentApps ?  rootModel.modelForRow(0) : rootModel.favoritesModel
                 dropEnabled: true
                 usesPlasmaTheme: true
-                verticalScrollBarPolicy: Qt.ScrollBarAlwaysOff
+                // @TODO verticalScrollBarPolicy: Qt.ScrollBarAlwaysOff
                 state: 'small'
 
                 onKeyNavDown: documentsFavoritesGrid.tryActivate(0,0)
@@ -508,10 +508,10 @@ PlasmaCore.Dialog {
                 Kirigami.Icon {
                     id: headLabelDocuments
                     color: colorWithAlpha(theme.textColor, 0.8)
-                    level: 5
-                    text: plasmoid.configuration.hideRecentDocs ?  i18n("Date and time") :  i18n("Recommended")
+                    // @TODO level: 5
+                    // @TODO text: plasmoid.configuration.hideRecentDocs ?  i18n("Date and time") :  i18n("Recommended")
                     Layout.leftMargin: Kirigami.Units.smallSpacing
-                    font.weight: Font.Bold
+                    // @TODO font.weight: Font.Bold
                 }
                 Item{
                     Layout.fillWidth: true
@@ -541,7 +541,7 @@ PlasmaCore.Dialog {
                 square: false
                 dropEnabled: true
                 usesPlasmaTheme: false
-                verticalScrollBarPolicy: Qt.ScrollBarAlwaysOff
+                // @TODO verticalScrollBarPolicy: Qt.ScrollBarAlwaysOff
                 state: 'small'
                 onKeyNavUp: {
                     if (viewDocuments) searchField.focus = true

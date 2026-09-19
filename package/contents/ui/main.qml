@@ -69,7 +69,7 @@ PlasmoidItem {
         showAllAppsCategorized: true
         showRecentApps: true
         showRecentDocs: true
-        showRecentContacts: false
+        // @TODO showRecentContacts: false
         showPowerSession: false
         Component.onCompleted: {
 
@@ -98,7 +98,7 @@ PlasmoidItem {
         appletInterface: plasmoid
         favoritesModel: rootModel.favoritesModel
         mergeResults: false
-        deleteWhenEmpty: true
+        // @TODO deleteWhenEmpty: true
     }
 
     Kicker.DragHelper {

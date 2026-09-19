@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 import QtQuick 2.0
+import org.kde.plasma.plasmoid
 
 import org.kde.plasma.components as PlasmaComponents
 
@@ -91,8 +92,8 @@ PlasmoidItem {
     Component {
         id: contextMenuComponent
 
-        PlasmaComponents.ContextMenu {
-            visualParent: root.visualParent
+        PlasmaComponents.Menu {
+            // @TODO visualParent: root.visualParent
         }
     }
 
@@ -109,9 +110,9 @@ PlasmoidItem {
 
             property variant submenu : submenu_
 
-            PlasmaComponents.ContextMenu {
+            PlasmaComponents.Menu {
                 id: submenu_
-                visualParent: submenuItem.action
+                // @TODO visualParent: submenuItem.action
             }
         }
     }
@@ -124,8 +125,8 @@ PlasmoidItem {
 
             text      : actionItem.text ? actionItem.text : ""
             enabled   : actionItem.type != "title" && ("enabled" in actionItem ? actionItem.enabled : true)
-            separator : actionItem.type == "separator"
-            section   : actionItem.type == "title"
+            // @TODO separator : actionItem.type == "separator"
+            // @TODO section   : actionItem.type == "title"
             icon      : actionItem.icon ? actionItem.icon : null
             checkable : actionItem.checkable ? actionItem.checkable : false
             checked   : actionItem.checked ? actionItem.checked : false

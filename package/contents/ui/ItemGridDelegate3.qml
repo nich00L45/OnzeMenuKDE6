@@ -18,6 +18,7 @@
  ***************************************************************************/
 
 import QtQuick 2.0
+import org.kde.plasma.plasmoid
 
 import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.components as PlasmaComponents
@@ -73,9 +74,9 @@ PlasmoidItem {
         anchors.leftMargin: Kirigami.Units.smallSpacing
         width:  Kirigami.Units.iconSizes.medium
         height: width
-        colorGroup: Kirigami.Theme.ComplementaryColorGroup
+        // @TODO colorGroup: Kirigami.Theme.ComplementaryColorGroup
         animated: false
-        usesPlasmaTheme: item.GridView.view.usesPlasmaTheme
+        // @TODO usesPlasmaTheme: item.GridView.view.usesPlasmaTheme
         source: model.decoration
         smooth: plasmoid.configuration.iconSmooth
     }

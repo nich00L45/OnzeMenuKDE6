@@ -20,13 +20,13 @@
 import QtQuick 2.4
 
 import org.kde.plasma.core as PlasmaCore
-import org.kde.plasma.extras as PlasmaExtras
+import org.kde.plasma.components as PlasmaComponents
 
 import org.kde.kirigami as Kirigami
 
 import org.kde.plasma.private.kicker as Kicker
 
-PlasmaExtras.ScrollArea {
+PlasmaComponents.ScrollView {
     id: itemMultiGrid
     anchors.fill: parent
     implicitHeight: itemColumn.implicitHeight
@@ -44,10 +44,10 @@ PlasmaExtras.ScrollArea {
     property int aCellHeight
     property int aCellWidth
 
-    verticalScrollBarPolicy: Qt.ScrollBarAsNeeded
-    horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
+    // @TODO verticalScrollBarPolicy: Qt.ScrollBarAsNeeded
+    // @TODO horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
 
-    flickableItem.flickableDirection: Flickable.VerticalFlick
+    // @TODO flickableItem.flickableDirection: Flickable.VerticalFlick
 
     onFocusChanged: {
         if (!focus) {
@@ -148,7 +148,7 @@ PlasmaExtras.ScrollArea {
                     cellHeight: isSquare ? root.tileSide : aCellHeight
                     iconSize: root.iconSize
                     square: isSquare
-                    verticalScrollBarPolicy: Qt.ScrollBarAlwaysOff
+                    // @TODO verticalScrollBarPolicy: Qt.ScrollBarAlwaysOff
 
                     model: repeater.model.modelForRow(index)
 

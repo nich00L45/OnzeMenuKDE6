@@ -55,9 +55,6 @@ FocusScope {
     property alias cellHeight: gridView.cellHeight
     property alias iconSize: gridView.iconSize
 
-    property alias horizontalScrollBarPolicy: scrollArea.horizontalScrollBarPolicy
-    property alias verticalScrollBarPolicy: scrollArea.verticalScrollBarPolicy
-
     onDropEnabledChanged: {
         if (!dropEnabled && model && model.hasOwnProperty("dropPlaceholderIndex")) {
             model.dropPlaceholderIndex = -1;
@@ -194,14 +191,14 @@ FocusScope {
             }
         }
 
-        PlasmaExtras.ScrollArea {
+        PlasmaComponents.ScrollView {
             id: scrollArea
 
             anchors.fill: parent
 
             focus: true
 
-            horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
+            // @TODO horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
 
 
             GridView {
@@ -261,7 +258,7 @@ FocusScope {
                 highlight: Item {
                     property bool isDropPlaceHolder: model && model.hasOwnProperty("dropPlaceholderIndex") && currentIndex === model.dropPlaceholderIndex
 
-                    PlasmaComponents.Highlight {
+                    KSvg.FrameSvgItem {
                         visible: gridView.currentItem && !isDropPlaceHolder
 
                         anchors.fill: parent

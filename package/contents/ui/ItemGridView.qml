@@ -21,7 +21,6 @@ import QtQuick 2.4
 
 import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.components as PlasmaComponents
-import org.kde.plasma.extras as PlasmaExtras
 import org.kde.kquickcontrolsaddons
 import org.kde.draganddrop
 
@@ -53,9 +52,6 @@ FocusScope {
     property alias cellWidth: gridView.cellWidth
     property alias cellHeight: gridView.cellHeight
     property alias iconSize: gridView.iconSize
-
-    property alias horizontalScrollBarPolicy: scrollArea.horizontalScrollBarPolicy
-    property alias verticalScrollBarPolicy: scrollArea.verticalScrollBarPolicy
 
     onDropEnabledChanged: {
         if (!dropEnabled && "dropPlaceHolderIndex" in model) {
@@ -202,14 +198,14 @@ FocusScope {
             }
         }
 
-        PlasmaExtras.ScrollArea {
+        PlasmaComponents.ScrollView {
             id: scrollArea
 
             anchors.fill: parent
 
             focus: true
 
-            horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
+            // @TODO horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
 
             GridView {
                 id: gridView
@@ -268,7 +264,7 @@ FocusScope {
                 highlight: Item {
                     property bool isDropPlaceHolder: "dropPlaceholderIndex" in itemGrid.model && itemGrid.currentIndex === itemGrid.model.dropPlaceholderIndex
 
-                    PlasmaComponents.Highlight {
+                    KSvg.FrameSvgItem {
                         visible: gridView.currentItem && !isDropPlaceHolder
 
                         anchors.fill: parent

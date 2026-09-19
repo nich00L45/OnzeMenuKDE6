@@ -9,15 +9,15 @@ import org.kde.plasma.components as PlasmaComponents
 import org.kde.plasma.extras as PlasmaExtras
 
 import org.kde.plasma.private.kicker as Kicker
-import org.kde.kcoreaddons as KCoreAddons // kuser
+import org.kde.coreaddons as KCoreAddons // kuser
 import org.kde.plasma.private.shell
 
 import org.kde.kwindowsystem
-import QtGraphicalEffects 1.0
+// @TODO replace import QtGraphicalEffects 1.0
 import org.kde.kquickcontrolsaddons
 
 import org.kde.plasma.components as PlasmaComponents3
-import org.kde.plasma.private.quicklaunch
+// @TODO replace import org.kde.plasma.private.quicklaunch
 
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.plasma5support as Plasma5Support
@@ -29,7 +29,7 @@ RowLayout{
     spacing: Kirigami.Units.gridUnit
 
     KCoreAddons.KUser {   id: kuser  }
-    Logic {   id: logic }
+    // @TODO Logic {   id: logic }
 
     Plasma5Support.DataSource {
         id: pmEngine
@@ -55,19 +55,20 @@ RowLayout{
         // Crop the avatar to fit in a circle, like the lock and login screens
         // but don't on software rendering where this won't render
         layer.enabled:true // iconUser.GraphicsInfo.api !== GraphicsInfo.Software
-        layer.effect: OpacityMask {
-            // this Rectangle is a circle due to radius size
-            maskSource: Rectangle {
-                width: iconUser.width
-                height: iconUser.height
-                radius: height / 2
-                visible: false
-            }
-        }
+        // @TODO BELOW
+        // layer.effect: OpacityMask {
+        //     // this Rectangle is a circle due to radius size
+        //     maskSource: Rectangle {
+        //         width: iconUser.width
+        //         height: iconUser.height
+        //         radius: height / 2
+        //         visible: false
+        //     }
+        // }
     }
 
 
-     {
+    Kirigami.Heading {
         wrapMode: Text.NoWrap
         color: theme.textColor
         level: 3
