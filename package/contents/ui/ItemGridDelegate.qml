@@ -27,7 +27,7 @@ import org.kde.kirigami as Kirigami
 
 import "code/tools.js" as Tools
 
-PlasmoidItem {
+Item {
     id: item
 
     width:  GridView.view.cellWidth

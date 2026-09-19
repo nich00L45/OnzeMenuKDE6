@@ -27,7 +27,7 @@ import org.kde.ksvg as KSvg
 
 import "code/tools.js" as Tools
 
-PlasmoidItem {
+Item {
     id: item
 
     height: isSeparator ? separatorHeight : itemHeight

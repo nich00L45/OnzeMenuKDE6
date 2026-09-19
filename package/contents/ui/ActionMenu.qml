@@ -23,7 +23,7 @@ import org.kde.plasma.plasmoid
 
 import org.kde.plasma.components as PlasmaComponents
 
-PlasmoidItem {
+Item {
     id: root
 
     property QtObject menu

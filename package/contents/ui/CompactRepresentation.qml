@@ -25,7 +25,7 @@ import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.components as PC3
 import org.kde.kirigami as Kirigami
 
-PlasmoidItem {
+Item {
     id: root
 
     readonly property var screenGeometry: plasmoid.screenGeometry
